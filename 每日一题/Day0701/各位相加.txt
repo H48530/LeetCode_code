@@ -1,0 +1,26 @@
+class Solution {
+    private int sum(int n){
+        int sum = 0;
+        while(n > 0){
+            sum += n % 10;
+            n /= 10;
+        }
+        return sum;
+    }
+    public int addDigits(int num) {
+        int n = sum(num);
+        while(n /10 > 0){
+            n = sum(n);
+        }
+        return n;
+    }
+}
+
+//方法2：
+//f(x*10+y) = f(x*9+x+y) % 9 = f(x+y)
+//所以：
+public int addDigits(int num) {
+	return (num - 1)%9+1;
+}
+public class 各位相加{
+}
